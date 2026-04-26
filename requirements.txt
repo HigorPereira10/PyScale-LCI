@@ -1,0 +1,10 @@
+# Manipulacao de Dados e Matrizes
+pandas
+numpy
+openpyxl
+
+# Interface Grafica (GUI)
+customtkinter
+
+# Testes e Qualidade (QA)
+pytest
