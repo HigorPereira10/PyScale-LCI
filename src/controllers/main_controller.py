@@ -15,11 +15,11 @@ class MainController:
         try:
             print(f"🔄 Iniciando simulação para: {file_path}")
             
-            # 1. Model: Importar e limpar
+            # 1. Importar e limpar
             raw_data = self.importer.load_data(file_path)
             clean_data = self.importer.clean_matrix(raw_data)
             
-            # 2. Model: Calcular
+            # 2. Calcular
             final_data = self.calculator.calculate_emergy(clean_data)
             total_emergy = self.calculator.get_total_emergy(final_data)
             

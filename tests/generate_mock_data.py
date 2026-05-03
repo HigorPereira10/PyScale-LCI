@@ -1,12 +1,12 @@
 import pandas as pd
 import os
 import sys 
-
 # Descobre onde este arquivo está e sobe um nível para a raiz do projeto
 raiz_do_projeto = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append(raiz_do_projeto)
-
 from src.models.lci_importer import LCIImporter
+
+
 
 # Cria um arquivo Excel fictício simulando um Inventário do Ciclo de Vida (LCI) simples.
 def create_mock_lci_file():
@@ -37,7 +37,7 @@ def main():
     # 1. Cria o arquivo falso
     arquivo_teste = create_mock_lci_file()
     
-    # 2. Instala o importador
+    # 2. Instancia o importador
     importer = LCIImporter()
     
     print("\n--- Testando a leitura da Planilha ---")

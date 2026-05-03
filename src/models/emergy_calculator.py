@@ -5,10 +5,6 @@ class EmergyCalculator:
     
     # Aplica as regras da álgebra emergética sobre os dados do Inventário do Ciclo de Vida (LCI).
     
-    
-    def __init__(self):
-        # Aqui podemos adicionar taxas de conversão ou constantes base no futuro
-        pass
 
     def calculate_emergy(self, df: pd.DataFrame) -> pd.DataFrame:
         """
@@ -29,7 +25,9 @@ class EmergyCalculator:
         # 2. Cria uma cópia para não sobrescrever os dados originais brutos
         result_df = df.copy()
 
+
         # 3. O Cálculo da Álgebra Emergética (vetorizado com Pandas)
+
         # Substitui possíveis valores nulos ou vazios por 0 antes de multiplicar usando NumPy
         quantidade = np.where(result_df['Quantidade'].isna(), 0, result_df['Quantidade'])
         uev = np.where(result_df['Transformidade_UEV'].isna(), 0, result_df['Transformidade_UEV'])
@@ -38,10 +36,10 @@ class EmergyCalculator:
 
         return result_df
 
+
+    # Retorna a soma total da emergia do ecossistema/sistema.
     def get_total_emergy(self, df_calculated: pd.DataFrame) -> float:
-        """
-        Retorna a soma total da emergia do ecossistema/sistema.
-        """
+    
         if 'Emergia_seJ' not in df_calculated.columns:
             raise ValueError("Você precisa rodar 'calculate_emergy' antes de pedir o total.")
             
