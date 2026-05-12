@@ -19,13 +19,18 @@ class MainController:
             raw_data = self.importer.load_data(file_path)
             clean_data = self.importer.clean_matrix(raw_data)
             
-            # 2. Calcular
+            # 2. Calcular a emergia básica
             final_data = self.calculator.calculate_emergy(clean_data)
             total_emergy = self.calculator.get_total_emergy(final_data)
             
-            # 3. Retornar os resultados para quem pediu (Interface Visual)
-            return final_data, total_emergy
+            # 3. Calcular os Índices Avançados
+            # Se não tiver a coluna, isso aqui vai guardar 'None', mas o programa continua!
+            indices = self.calculator.calculate_indices(final_data)
+            
+            # 4. Retornar TODOS os resultados para quem pediu (Interface Visual)
+            return final_data, total_emergy, indices
             
         except Exception as e:
             print(f"❌ Erro na simulação: {e}")
-            return None, None
+            # Como agora retornamos 3 coisas, precisamos retornar 3 'Nones' no erro
+            return None, None, None
