@@ -4,6 +4,8 @@ numpy
 openpyxl
 
 # Interface Grafica (GUI)
-
+PyQt6==6.7.1
+pyqtgraph
 
 # Testes e Qualidade (QA)
+pytest

@@ -14,7 +14,7 @@ from src.controllers.main_controller import MainController
 class EmergyGUI(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("EcoVision - Cálculo de Emergia")
+        self.setWindowTitle("PyScale-LCI - Cálculo de Emergia")
         self.setGeometry(300, 100, 1000, 700)
         
         self.df_result = None
@@ -55,7 +55,7 @@ class EmergyGUI(QWidget):
         layout.addSpacerItem(QSpacerItem(20, 100, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding))
 
         # Título principal com fonte serifada e cor acetinada
-        self.lbl_title = QLabel("EcoVision")
+        self.lbl_title = QLabel("PyScale-LCI")
         self.lbl_title.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.lbl_title.setStyleSheet("""
             font-family: 'Georgia', 'Times New Roman', serif;
@@ -82,7 +82,7 @@ class EmergyGUI(QWidget):
         buttons_layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
         buttons_layout.setSpacing(20)
 
-        self.btn_get_started = QPushButton("Get Started")
+        self.btn_get_started = QPushButton("Iniciar Simulação")
         self.btn_get_started.setFixedWidth(200)
         self.btn_get_started.setStyleSheet("""
             QPushButton {
@@ -168,7 +168,7 @@ class EmergyGUI(QWidget):
         titulo_html = (
             "<span style='color: #ffffff; font-size: 19px; font-family: Segoe UI, sans-serif; font-weight: bold;'>"
             "O Cálculo de Emergia é uma metodologia de contabilidade ambiental e termodinâmica"
-            "desenvolvida por H.T. Odum.</span>"
+            " desenvolvida por H.T. Odum.</span>"
         )
         msg.setText(titulo_html)
         
@@ -176,7 +176,7 @@ class EmergyGUI(QWidget):
             "<div style='color: #e0e0e0; font-size: 19px; line-height: 140%; font-family: Segoe UI, sans-serif;'>"
             "A emergia expressa todos os recursos (luz solar, vento, combustíveis e mão de obra) "
             "em uma única unidade comum: o <b>Joule Equivalente Solar (seJ)</b>.<br><br>"
-            "No EcoVision, esse cálculo permite que você entenda quanto de 'trabalho da natureza' "
+            "No PyScale-LCI, esse cálculo permite que você entenda quanto de 'trabalho da natureza' "
             "foi necessário para sustentar seu processo produtivo, revelando a <b>verdadeira sustentabilidade</b> "
             "além dos custos financeiros.</div>"
         )
@@ -242,7 +242,7 @@ class EmergyGUI(QWidget):
         tab1_layout.addWidget(self.table, stretch=3)
 
         results_layout = QHBoxLayout()
-        self.label_total = QLabel("Total Emergia: ---")
+        self.label_total = QLabel("Emergia Total: ---")
         self.label_total.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.label_total.setStyleSheet("font-size: 20px; font-weight: bold;")
         results_layout.addWidget(self.label_total)
@@ -365,7 +365,7 @@ class EmergyGUI(QWidget):
 
     # ===== Funções de Lógica =====
     def browse_file(self):
-        file_path, _ = QFileDialog.getOpenFileName(self, "Selecione arquivo LCI", "", "Arquivos CSV (*.csv);;Excel (*.xls *.xlsx)")
+        file_path, _ = QFileDialog.getOpenFileName(self, "Selecione arquivo LCI", "", "Planilhas (*.xlsx *.xls *.csv);;Todos os Arquivos (*.*)")
         if file_path:
             self.label_file.setText(file_path)
             self.label_logs.setText("Arquivo selecionado com sucesso ✅")
@@ -382,7 +382,7 @@ class EmergyGUI(QWidget):
         self.plot_widget.clear()
         self.plot_categories.clear()
         
-        self.label_total.setText("Total Emergia: ---")
+        self.label_total.setText("Emergia Total: ---")
         self.label_indices.setText("Aguardando simulação...\n(Certifique-se de que a planilha possui a coluna 'Categoria' com R, N ou F)")
         
         self.btn_export_table.setEnabled(False)
@@ -416,7 +416,7 @@ class EmergyGUI(QWidget):
             QApplication.processEvents()
 
             self.update_table()
-            self.label_total.setText(f"Total Emergia:\n{total_emergy:,.2f} SeJ")
+            self.label_total.setText(f"Emergia Total:\n{total_emergy:,.2f} SeJ")
             
             self.progress_bar.setValue(85)
             self.label_logs.setText("Desenhando gráficos... 🔄")
