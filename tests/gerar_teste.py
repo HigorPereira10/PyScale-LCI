@@ -29,7 +29,7 @@ try:
     print("✅ [Checkpoint 2] Tabela montada na memória com sucesso.")
 
     # Definindo o nome do arquivo e o caminho absoluto
-    nome_arquivo = "matriz_teste_agricola.xlsx"
+    nome_arquivo = os.path.join("data", "matriz_teste_agricola.xlsx")
     caminho_completo = os.path.abspath(nome_arquivo)
 
     print("⏳ [Checkpoint 3] Tentando salvar o arquivo Excel...")
