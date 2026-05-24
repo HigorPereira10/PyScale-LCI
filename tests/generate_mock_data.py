@@ -34,19 +34,19 @@ def create_mock_lci_file():
 def main():
     print("--- Iniciando o Sistema PyScale-LCI ---")
     
-    # 1. Cria o arquivo falso
+    # Cria o arquivo falso
     arquivo_teste = create_mock_lci_file()
     
-    # 2. Instancia o importador
+    # Instancia o importador
     importer = LCIImporter()
     
     print("\n--- Testando a leitura da Planilha ---")
     try:
-        # 3. Lê e limpa os dados
+        # Lê e limpa os dados
         dados_brutos = importer.load_data(arquivo_teste)
         dados_limpos = importer.clean_matrix(dados_brutos)
         
-        # 4. Exibe as 5 primeiras linhas no terminal
+        # Exibe as 5 primeiras linhas no terminal
         print(dados_limpos.head())
         print("\n✅ Leitura concluída com sucesso!")
         
