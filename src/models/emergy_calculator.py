@@ -15,16 +15,16 @@ class EmergyCalculator:
         Retorna:
         pd.DataFrame: Um novo DataFrame com a coluna de resultados 'Emergia_seJ'.
         """
-        # 1. Verificação de segurança: Garante que as colunas matemáticas existem
+        # Verificação de segurança: Garante que as colunas matemáticas existem
         required_cols = ['Quantidade', 'Transformidade_UEV']
         for col in required_cols:
             if col not in df.columns:
                 raise ValueError(f"Erro no cálculo: A coluna obrigatória '{col}' não foi encontrada.")
 
-        # 2. Cria uma cópia para não sobrescrever os dados originais brutos
+        # Cria uma cópia para não sobrescrever os dados originais brutos
         result_df = df.copy()
 
-        # 3. O Cálculo da Álgebra Emergética (vetorizado com Pandas)
+        # O Cálculo da Álgebra Emergética (vetorizado com Pandas)
         # Substitui possíveis valores nulos ou vazios por 0 antes de multiplicar usando NumPy
         quantidade = np.where(result_df['Quantidade'].isna(), 0, result_df['Quantidade'])
         uev = np.where(result_df['Transformidade_UEV'].isna(), 0, result_df['Transformidade_UEV'])
@@ -40,7 +40,6 @@ class EmergyCalculator:
             
         return df_calculated['Emergia_seJ'].sum()
 
-    # --- NOVA FUNÇÃO  ---
     # lógica de "tolerância a falhas": 
     # se a coluna Categoria não existir Excel/CSV, o sistema cria automaticamente uma coluna vazia na tabela, fazendo com que o programa rode normalmente
 
