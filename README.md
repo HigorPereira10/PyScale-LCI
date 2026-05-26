@@ -32,24 +32,7 @@ indiretamente) em sistemas produtivos.
 O projeto foi edificado seguindo rigorosamente o padrão arquitetural **Model-View-Controller
 (MVC)**, garantindo a separação de conceitos, modularidade e alta testabilidade.
 
-PyScale-LCI/
-│
-├── data/ # Arquivos de dados e inventários (Ex: Tomate em
-Estufa)
-│
-├── src/ # Código-fonte principal da aplicação
-│ ├── controllers/ # Camada Controller (Orquestração de fluxo)
-│ │ └── main_controller.py
-│ │
-│ ├── models/ # Camada Model (Regras de negócio e Matemática Pura)
-│ │ ├── emergy_calculator.py
-│ │ └── lci_importer.py
-│ │
-│ └── views/ # Camada View (Interface Gráfica PyQt6)
-│ └── gui.py
-│
-├── tests/ # Suíte de Testes Automatizados e QA
-│ ├── tes```text
+```text
 PyScale-LCI/
 │
 ├── data/                      # Arquivos de dados e inventários (Ex: Tomate em Estufa)
