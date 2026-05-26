@@ -62,7 +62,7 @@ PyScale-LCI/
 
 **Divisão de Responsabilidades:**
 
-* ** Model (`src/models/`):** Isolada de qualquer elemento visual. Contém a lógica pura da
+* **Model (`src/models/`):** Isolada de qualquer elemento visual. Contém a lógica pura da
 álgebra emergética e funções de manipulação de matrizes de dados.
 * **View (`src/views/`):** Camada de apresentação. Renderiza componentes de tela e
 escuta ações do usuário. Não processa regras de cálculo.
@@ -72,10 +72,30 @@ interface.
 
 ## 🛠️ Tecnologias e Dependências
 
-*Python 3.13+ (Linguagem base do ecossistema)
-*PyQt6 (Construção da interface gráfica nativa de alta fidelidade)
-*PyQtGraph (Plotagem gráfica vetorial de altíssima velocidade e interatividade)
-*Pandas (Estruturação de dados em DataFrames e processamento matricial)
-*Openpyxl (Mecanismo de leitura e gravação assíncrona de arquivos `.xlsx`)
-*Pytest (Framework de automação de testes unitários e asserções de QA)
+* **Python 3.13+** (Linguagem base do ecossistema)
+* **PyQt6** (Construção da interface gráfica nativa de alta fidelidade)
+* **PyQtGraph** (Plotagem gráfica vetorial de altíssima velocidade e interatividade)
+* **Pandas** (Estruturação de dados em DataFrames e processamento matricial)
+* **Openpyxl** (Mecanismo de leitura e gravação assíncrona de arquivos `.xlsx`)
+* **Pytest** (Framework de automação de testes unitários e asserções de QA)
 
+## 🧪 Suíte de Testes e Controle de Qualidade (QA)
+
+O projeto conta com uma cobertura completa de testes unitários automatizados para blindar o núcleo matemático contra regressões de código.
+
+**Executando os Testes Unitários**
+Para rodar a bateria de testes automatizados e verificar as asserções de cálculo das matrizes e importações, execute:
+
+```text
+pytest -v
+```
+(O arquivo pytest.ini mapeia automaticamente a raiz do projeto adicionando o escopo de módulos no PYTHONPATH para evitar falhas de importação).
+
+**Geração de Massa de Testes Controlada (Seed Script)**
+O projeto inclui um script utilitário projetado para testar o comportamento do software sob condições de estresse e erro. Para executá-lo, utilize:
+
+```text
+python tests/gerar_teste.py
+```
+* **O que este script faz:** Ele gera programaticamente um arquivo Excel de teste em data/matriz_teste_agricola.xlsx contendo dados simulados e injeta intencionalmente um valor zerado (0.0) na transformidade de um dos itens.
+* **Objetivo de validação:** Ao carregar este arquivo na interface gráfica, você poderá atestar visualmente o funcionamento do sistema de segurança e alertas do PyScale-LCI, dado que a linha inconsistente será realçada automaticamente pela GUI com cores de aviso, validando os tratamentos de erro.
