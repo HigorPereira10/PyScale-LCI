@@ -58,7 +58,7 @@ PyScale-LCI/
 ├── requirements.txt           # Gerenciador de dependências e bibliotecas do projeto
 ├── main.py                    # Ponto de entrada (Bootstrap) da aplicação
 └── README.md                  # Documentação do repositório
-
+```
 
 **Divisão de Responsabilidades:**
 
