@@ -35,7 +35,7 @@ O projeto foi edificado seguindo rigorosamente o padrão arquitetural **Model-Vi
 ```text
 PyScale-LCI/
 │
-├── data/                      # Arquivos de dados e inventários (Ex: Tomate em Estufa)
+├── data/                      # Arquivos de dados e inventários
 │
 ├── src/                       # Código-fonte principal da aplicação
 │   ├── controllers/           # Camada Controller (Orquestração de fluxo)
