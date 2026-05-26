@@ -97,5 +97,13 @@ O projeto inclui um script utilitário projetado para testar o comportamento do 
 ```text
 python tests/gerar_teste.py
 ```
-* **O que este script faz:** Ele gera programaticamente um arquivo Excel de teste em data/matriz_teste_agricola.xlsx contendo dados simulados e injeta intencionalmente um valor zerado (0.0) na transformidade de um dos itens.
+* **O que este script faz:** Ele gera programaticamente um arquivo Excel de teste em (`data/matriz_teste_agricola.xlsx') contendo dados simulados e injeta intencionalmente um valor zerado (0.0) na transformidade de um dos itens.
 * **Objetivo de validação:** Ao carregar este arquivo na interface gráfica, você poderá atestar visualmente o funcionamento do sistema de segurança e alertas do PyScale-LCI, dado que a linha inconsistente será realçada automaticamente pela GUI com cores de aviso, validando os tratamentos de erro.
+
+## 👥 Autores e Contribuintes
+
+* **Higor Pereira -** Desenvolvimento das Camadas Model, Componentes de Importação (LCIImporter) e Orquestração do MainController.
+* **João Paulo -** Desenvolvimento e Refinamento de UX/UI das Janelas em PyQt6 e Plotagem de Gráficos
+* **Igor Rodrigues -** Cobertura de Testes Unitários.
+
+Desenvolvido com 💚 focado em Sustentabilidade e Engenharia de Software.
